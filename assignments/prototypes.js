@@ -70,7 +70,7 @@ function Humanoid(attributes){
 //prototypes
 Humanoid.prototype = Object.create(CharacterStats.prototype)
 Humanoid.prototype.greet = function() {
-  return `${this.name} offers a geeting in ${this.language}`
+  return `${this.name} offers a geeting in ${this.language}. `;
 }
 
 /*
@@ -145,5 +145,60 @@ Humanoid.prototype.greet = function() {
 
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
+function VillainStats(attributes){
+  Humanoid.call(this, attributes);
+};
+
+VillainStats.prototype = Object.create(Humanoid.prototype);
+
+function HeroStats(attributes){
+  Humanoid.call(this, attributes)
+};
+
+HeroStats.prototype = Object.create(Humanoid.prototype);
+
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
+  
+  HeroStats.prototype.lowerHealth = function (){
+    if()
+    this.healthPoints - 1
+  }
+  
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+  const hero = new Humanoid({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 3,
+      height: 6,
+    },
+    healthPoints: 8,
+    name: 'Hero',
+    team: 'Hero Team',
+    weapons: [
+      'Sword',
+      'Bow',
+    ],
+    language: 'Hero speak',
+  });
+
+  const villain = new Humanoid({
+    createdAt: new Date(),
+    dimensions: {
+      length: 5,
+      width: 8,
+      height: 12,
+    },
+    healthPoints: 22,
+    name: 'Villian',
+    team: 'Evil Guy',
+    weapons: [
+      'Big Fire Fist',
+      'Big Flame Sword',
+    ],
+    language: 'Evil speak',
+  });
+
+  console.log(villain.destroy())
+  console.log(hero.destroy())
