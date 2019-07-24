@@ -16,17 +16,53 @@ A constructor function is used to refer to an object at a specific time as its c
 */
 
 // Principle 1
-
 // code example for Window Binding
+let principle1 = function(){
+    console.log(`Principle One ${this}`)
+    
+}
+
+principle1();
+
 
 // Principle 2
-
 // code example for Implicit Binding
+let principle2 = {
+    'concept': 'Implicit Binding',
+    'whatAmI': function(name){
+        console.log(`${this.concept} is ${name}`);
+    }
+};
+principle2.whatAmI('Principle 2')
+
 
 // Principle 3
-
 // code example for New Binding
 
-// Principle 4
+function principle3(name){
+    this.concept = 'New Binding';
+    this.name = name;
+    this.announce = function(){
+        console.log(`${this.concept} is ${this.name}`);
+    }
+};
 
+const prin3 = new principle3('principle 3')
+
+prin3.announce();
+
+// Principle 4
 // code example for Explicit Binding
+
+function principle(){
+    console.log(`${this.concept} is ${this.name}`)
+}
+
+let principle4 ={
+    'name': 'Principle 4',
+    'concept': 'Explicit Binding',
+};
+
+let princ4 = principle.bind(principle4)
+
+princ4()
