@@ -159,25 +159,25 @@ HeroStats.prototype = Object.create(Humanoid.prototype);
 
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   
-  VillainStats.prototype.fireball = function counter(){
-    let takeDamage = this.healthPoints;
+  VillainStats.prototype.fireball = function decrease(){
+    this.healthPoints;
     return () => {
-      takeDamage -= 4
-      return takeDamage;
+      this.healthPoints -= 4
+      return this.healthPoints;
     }
   }
 
- HeroStats.prototype.stabbing = function counter(){
-    let takeDamage = this.healthPoints;
+ HeroStats.prototype.stabbing = function decrease(){
+    this.healthPoints;
     return () => {
-      takeDamage -= 2
-      return takeDamage;
+      this.healthPoints -= 2
+      return this.healthPoints;
     }
   }
 
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
-  const hero = new HeroStats({
+  let hero = new HeroStats({
     createdAt: new Date(),
     dimensions: {
       length: 2,
@@ -194,7 +194,7 @@ HeroStats.prototype = Object.create(Humanoid.prototype);
     language: 'Hero speak',
   });
 
-  const villain = new VillainStats({
+  let villain = new VillainStats({
     createdAt: new Date(),
     dimensions: {
       length: 5,
@@ -211,5 +211,5 @@ HeroStats.prototype = Object.create(Humanoid.prototype);
     language: 'Evil speak',
   });
 
-  console.log(villain.
-  console.log(hero.)
+  let villainHealth = villain.fireball()
+  console.log(villain)
