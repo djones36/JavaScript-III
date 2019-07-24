@@ -160,13 +160,12 @@ HeroStats.prototype = Object.create(Humanoid.prototype);
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   
   HeroStats.prototype.lowerHealth = function (){
-    if()
     this.healthPoints - 1
   }
   
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
-  const hero = new Humanoid({
+  const hero = new HeroStats({
     createdAt: new Date(),
     dimensions: {
       length: 2,
@@ -183,7 +182,7 @@ HeroStats.prototype = Object.create(Humanoid.prototype);
     language: 'Hero speak',
   });
 
-  const villain = new Humanoid({
+  const villain = new VillainStats({
     createdAt: new Date(),
     dimensions: {
       length: 5,
