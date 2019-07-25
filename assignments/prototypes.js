@@ -159,21 +159,40 @@ HeroStats.prototype = Object.create(Humanoid.prototype);
 
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   
-  VillainStats.prototype.fireball = function(){
-   let burn = this.healthPoints;
-    return function() {
-      return burn -= 4;
-    }
-
-  }
-
- HeroStats.prototype.stabbing = function(){
+  VillainStats.prototype.takingDamage = function(){
+    let name = this.name;
     let health = this.healthPoints;
+
+     return function(){
+
+     health -= 4
+
+     if (health > 0){
+       return console.log(`${name} is taking damage, the current ${health} hp`)
+     } else if (health <= 0){
+       console.log(`${name} has died`);
+     }
+
+    };
+
+  };
+
+  HeroStats.prototype.takingDamage = function(){
+    let name = this.name;
+    let health = this.healthPoints;
+
     return function() {
-      health -= 2
-      return this.healthPoints;
-    }
-  }
+
+     health -= 2;
+     if (health > 0){
+      return console.log(`${name} is taking damage, the current ${health} hp`)
+     }else if (health <= 0){
+       console.log(`${name} has fallen`);
+     }
+
+    };
+
+  };
 
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
@@ -202,7 +221,7 @@ HeroStats.prototype = Object.create(Humanoid.prototype);
       height: 12,
     },
     healthPoints: 22,
-    name: 'Villian',
+    name: 'Villain',
     team: 'Evil Guy',
     weapons: [
       'Big Fire Fist',
@@ -211,5 +230,5 @@ HeroStats.prototype = Object.create(Humanoid.prototype);
     language: 'Evil speak',
   });
 
-  // let villainHealth = villain.fireball()
-  // console.log(villain.fireball())
+
+
