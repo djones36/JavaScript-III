@@ -177,7 +177,7 @@ HeroStats.prototype = Object.create(Humanoid.prototype);
 
   };
 
-  HeroStats.prototype.takingDamage = function(){
+  HeroStats.prototype.feelingPain = function(){
     let name = this.name;
     let health = this.healthPoints;
 
@@ -229,6 +229,14 @@ HeroStats.prototype = Object.create(Humanoid.prototype);
     ],
     language: 'Evil speak',
   });
-
-
+let takeDamage = villain.takingDamage();
+let  feelPain = hero.feelingPain();
+takeDamage();
+feelPain();
+takeDamage();
+feelPain();
+takeDamage();
+feelPain();
+takeDamage();
+feelPain();
 
